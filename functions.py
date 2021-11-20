@@ -2,11 +2,11 @@ import streamlit as st
 
 
 
-def PCM(edn):
+def PCM():
     
     job_options = ['select','Architecture','Industrial Design','Data Analyst','Defense','Forensic Science','Ethical Hacking','Physicist','Pharmacy']
     job_fields =st.selectbox("select a field",job_options)
-    if job_fields==job_options[0]:
+    if job_fields==job_options[1]:
         print(st.markdown('''
         ### B.Arch Eligibility criteria
         - To study a full-time B.Architecture programme, students must fulfill the eligibility requirements given below:
@@ -27,7 +27,7 @@ def PCM(edn):
         ### UnderGraduate Course
         - B.Architecture
         '''))
-    elif job_fields==job_options[1]:
+    elif job_fields==job_options[2]:
         st.markdown('''
         ### skills
         - Creativity
@@ -68,7 +68,7 @@ def PCM(edn):
         - M.Des
         ''')
 
-    elif job_fields==job_options[2]:
+    elif job_fields==job_options[3]:
         st.markdown('''
         ### To Be Data Analyst  
         ##### skills you must have to be data analyst 
@@ -93,7 +93,7 @@ def PCM(edn):
         - Cloudera Certified Associate Data Analyst
         - Microsoft Certified: Data Analyst Associate
         - Other Data Analysis Certifications''')
-    elif job_fields==job_options[3]:
+    elif job_fields==job_options[4]:
         st.markdown('''
         ### you can go through various ways
         - Indian Army
@@ -101,97 +101,98 @@ def PCM(edn):
         - Indian Navy
         go through the link-https://www.4ono.com/how-join-indian-armed-forces/
             ''')
-    elif job_fields==job_options[4]:
+    elif job_fields==job_options[5]:
         st.markdown('''
         go through the link- https://www.shiksha.com/science/forensic-science-chp
         ''')
 
-    elif job_fields==job_options[5]:
+    elif job_fields==job_options[6]:
         st.markdown(''' go through the link-https://cybersecurityguide.org/resources/ethical-hacker/''')
 
-    elif job_fields==job_options[6]:
+    elif job_fields==job_options[7]:
         st.markdown('Go through the link-https://www.indeed.com/career-advice/career-development/how-to-become-a-physicist')
 
-    elif job_fields==job_options[7]:
+    elif job_fields==job_options[8]:
         st.markdown('Go through the link-https://www.mindler.com/blog/pharmacy-career-india-guide/')
 
     else:
-        st.text("Thank You")
+        st.info(" please select the job field")
 
 
-def PCB(edn):
+def PCB():
     job_options = ['select','Clinical Research','Genetics','Bio-Technology','Bio-Informatics','Food Science','Public Health Adminstration','Bio-Medical Science','Environmental Science','Agriculture','Hydrology']
     job_fields = st.selectbox("select a field",job_options)
-    if job_fields == job_options[0]:
+    
+    if job_fields == job_options[1]:
         st.markdown('Go Through the link-https://bestaccreditedcolleges.org/articles/how-to-become-a-clinical-research-scientist-career-roadmap.html')
 
-    elif job_fields == job_options[1]:
+    elif job_fields == job_options[2]:
         st.markdown('Go Through the link-Genetics')
 
-    elif job_fields == job_options[2]:
+    elif job_fields == job_options[3]:
         st.markdown('Go Through the link-https://collegedunia.com/courses/bachelor-of-engineering-be-biotechnology')
 
-    elif job_fields == job_options[3]:
-        st.markdown('Go Through the link-https://bitesizebio.com/38236/how-to-become-a-bioinformatician/')
     elif job_fields == job_options[4]:
-        st.markdown('Go Through the link-https://manavrachna.edu.in/blog/career-guide-to-become-food-scientist/')
+        st.markdown('Go Through the link-https://bitesizebio.com/38236/how-to-become-a-bioinformatician/')
     elif job_fields == job_options[5]:
-        st.markdown('Go Through the link-https://www.healthcareadministrationedu.org/public-health-administration/')
+        st.markdown('Go Through the link-https://manavrachna.edu.in/blog/career-guide-to-become-food-scientist/')
     elif job_fields == job_options[6]:
-        st.markdown('Go Through the link-https://www.indiaeducation.net/careercenter/science/biomedical-science/')
+        st.markdown('Go Through the link-https://www.healthcareadministrationedu.org/public-health-administration/')
     elif job_fields == job_options[7]:
-        st.markdown('Go Through the link-https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm')
+        st.markdown('Go Through the link-https://www.indiaeducation.net/careercenter/science/biomedical-science/')
     elif job_fields == job_options[8]:
-        st.markdown('Go Through the link-https://www.shiksha.com/science/agriculture-chp')
+        st.markdown('Go Through the link-https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm')
     elif job_fields == job_options[9]:
+        st.markdown('Go Through the link-https://www.shiksha.com/science/agriculture-chp')
+    elif job_fields == job_options[10]:
         st.markdown('Go Through the link-https://www.indeed.com/career-advice/career-development/how-to-be-hydrologist')
     else:
-        st.text("Thank You")
+        st.info(" please select the job field")
 
 def commerce():
     job_options =['select','Research Analyst','Sales Manager','Budget Analyst','Auditor','Chief Financial Officer','Business Consultant','Stock Broker','Investment Banker','Taxation','Company secretary','Finance Advisor']
     job_fields =st.selectbox("select a field",job_options)
-    if job_fields == job_options[0]:
+    if job_fields == job_options[1]:
         st.markdown('Go Through the link-https://corporatefinanceinstitute.com/resources/careers/jobs/research-analyst/')
-    elif job_fields == job_options[1]:
-        st.markdown('Go Through the link-https://www.collegedekho.com/careers/sales-manager')
     elif job_fields == job_options[2]:
-        st.markdown('Go Through the link-https://www.collegedekho.com/careers/budget-analyst')
+        st.markdown('Go Through the link-https://www.collegedekho.com/careers/sales-manager')
     elif job_fields == job_options[3]:
-        st.markdown('Go Through the link-https://www.collegedekho.com/careers/auditor')
+        st.markdown('Go Through the link-https://www.collegedekho.com/careers/budget-analyst')
     elif job_fields == job_options[4]:
-        st.markdown('Go Through the link-https://www.seek.com.au/career-advice/role/chief-financial-officer')
+        st.markdown('Go Through the link-https://www.collegedekho.com/careers/auditor')
     elif job_fields == job_options[5]:
-        st.markdown('Go Through the link-https://www.indeed.com/career-advice/careers/what-does-a-business-consultant-do')
+        st.markdown('Go Through the link-https://www.seek.com.au/career-advice/role/chief-financial-officer')
     elif job_fields == job_options[6]:
-        st.markdown('Go Through the link-https://www.indiaeducation.net/careercenter/commerce/career-in-stock-broking/')
+        st.markdown('Go Through the link-https://www.indeed.com/career-advice/careers/what-does-a-business-consultant-do')
     elif job_fields == job_options[7]:
-        st.markdown('Go Through the link-https://www.upgrad.com/blog/investment-banker-salary-beginner-experienced/')
+        st.markdown('Go Through the link-https://www.indiaeducation.net/careercenter/commerce/career-in-stock-broking/')
     elif job_fields == job_options[8]:
-        st.markdown('Go Through the link-http://employmentnews.gov.in/newemp/MoreContentNew.aspx?n=InDepthJobs&k=64')
+        st.markdown('Go Through the link-https://www.upgrad.com/blog/investment-banker-salary-beginner-experienced/')
     elif job_fields == job_options[9]:
-        st.markdown('Go Through the link-https://www.collegedekho.com/careers/company-secretary-cs')
+        st.markdown('Go Through the link-http://employmentnews.gov.in/newemp/MoreContentNew.aspx?n=InDepthJobs&k=64')
     elif job_fields == job_options[10]:
+        st.markdown('Go Through the link-https://www.collegedekho.com/careers/company-secretary-cs')
+    elif job_fields == job_options[11]:
         st.markdown('Go Through the link-https://www.careerindia.com/features/how-to-become-a-financial-advisor-in-india-023404.html')
     else:
-        st.text("Thank You")
+        st.info(" please select the job field")
 
 def Arts():
     job_options=['Designer','Filmaker','Journalist','Photographer','Philosophy','Criminology','Fine Arts']
     job_fields =st.selectbox("select a field",job_options)
-    if job_fields == job_options[0]:
+    if job_fields == job_options[1]:
         st.markdown('Go Through the link-https://www.themuse.com/advice/how-to-become-a-designer-at-any-stage-of-your-career')
-    elif job_fields == job_options[1]:
-        st.markdown('Go Through the link-https://www.wikihow.com/Be-a-Filmmaker')
     elif job_fields == job_options[2]:
-        st.markdown('Go Through the link-https://collegedunia.com/courses/bachelor-of-arts-ba-journalism/how-to-become-a-journalist')
+        st.markdown('Go Through the link-https://www.wikihow.com/Be-a-Filmmaker')
     elif job_fields == job_options[3]:
-        st.markdown('Go Through the link-https://www.indiatoday.in/education-today/jobs-and-careers/story/how-to-become-a-photographer-1735030-2020-10-26')
+        st.markdown('Go Through the link-https://collegedunia.com/courses/bachelor-of-arts-ba-journalism/how-to-become-a-journalist')
     elif job_fields == job_options[4]:
-        st.markdown('Go Through the link-https://www.gmercyu.edu/academics/learn/philosophy-major-jobs')
+        st.markdown('Go Through the link-https://www.indiatoday.in/education-today/jobs-and-careers/story/how-to-become-a-photographer-1735030-2020-10-26')
     elif job_fields == job_options[5]:
-        st.markdown('Go Through the link-https://www.mindler.com/blog/criminology-career-india/')
+        st.markdown('Go Through the link-https://www.gmercyu.edu/academics/learn/philosophy-major-jobs')
     elif job_fields == job_options[6]:
+        st.markdown('Go Through the link-https://www.mindler.com/blog/criminology-career-india/')
+    elif job_fields == job_options[7]:
         st.markdown('Go Through the link-https://www.sarvgyan.com/courses/arts/fine-arts')
     else:
-        st.text("Thank You")
+        st.info(" please select the job field")
