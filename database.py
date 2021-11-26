@@ -5,20 +5,22 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 
-class career(Base):
+class Career(Base):
 
     __tablename__ = "careers"
     id =Column(Integer, primary_key=True)
     name = Column(String)
-    college = Column(String)
+    education_lvl = Column(String)
     stream = Column(String)
     email = Column(String)
+    career = Column(String)
 
-class login(Base):
+class Login(Base):
     __tablename__ = "logins"
     id = Column(Integer,primary_key=True)
     email = Column(String)
     password = Column(String)
+    
 
 
 if __name__ == "__main__":
