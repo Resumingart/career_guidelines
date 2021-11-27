@@ -15,6 +15,7 @@ b1 = c[0].button("About")
 b2  = c[1].button("Login")
 b3  = c[2].button("Signup")
 
+form =st.empty()
 def make_hashes(password):
     return hashlib.sha256(str.encode(password)).hexdigest()
 
@@ -74,7 +75,7 @@ def about(box):
     ''')
                 
 
-st.image('ppicjpg.jpg')
+st.image('path.jpg')
 
 st.title("welcome to career guidelines")
 
@@ -92,31 +93,29 @@ if email and len(email) > 10:
     login.text("You are logged in.")
 
 if login or signup:
-    with st.form("add_form"):
+    with st.form("f3"):
         name = st.text_input("Enter your Name:")
         college = st.text_input("Enter your college name:")
         edn = st.selectbox('Education Level:',['select one','12th','Graduate','Masters','Diploma'])
         strm = st.selectbox("What is your Stream:",['select',"Science","Commerce","Arts"])
         submit_btn = st.form_submit_button("submit form")
 
+    if len(name)>1 and strm =='Science' and (edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):        
+        category = st.selectbox('select',('select','PCM','PCB'))
+        if strm=='Science' and category=='PCM':
+            functions.PCM()
+        elif strm=='Science' and category=='PCB':
+            functions.PCB()
+        else:
+            st.info("please select a right option")
+    elif len(name)>1 and strm=='Commerce' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
+            functions.commerce()
 
-    
-    
-if len(name)>1 and strm =='Science' and (edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):        
-    category = st.selectbox('select',('select','PCM','PCB'))
-    if strm=='Science' and category=='PCM':
-        functions.PCM()
-    elif strm=='Science' and category=='PCB':
-        functions.PCB()
+    elif len(name)>1 and strm =='Arts' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
+        functions.Arts()
     else:
-        st.info("please select a right option")
-elif len(name)>1 and strm=='Commerce' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
-    functions.commerce()
+        st.error("form incomplete")
 
-elif len(name)>1 and strm =='Arts' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
-    functions.Arts()
-else:
-    st.error("form incomplete")
 
 
 if email and len(email)>10:
