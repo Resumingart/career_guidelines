@@ -10,6 +10,7 @@ class Career(Base):
     __tablename__ = "careers"
     id =Column(Integer, primary_key=True)
     name = Column(String)
+    college = Column(String)
     education_lvl = Column(String)
     stream = Column(String)
     email = Column(String)

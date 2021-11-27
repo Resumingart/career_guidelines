@@ -34,13 +34,19 @@ def signup(box):
         new_user = st.text_input('Email address')
         new_passwd = st.text_input('New Password', type='password')
         new_passwd2 = st.text_input('New Password again', type='password')
-        btn = st.form_submit_button("Sign Up")
-        if btn:
+        btn = st.form_submit_button("Sign Up")   
+        if btn  and len(new_user)>0: #
             db = open_db()
-            db.add(Login(email = new_user, password=new_passwd))
+            if new_passwd == new_passwd2:#
+                db.add(Login(email = new_user, password = new_passwd))
+            else:#
+                st.error("password isn't matching !")#
             db.commit()
             db.close()
             box.success("You have successfully created an account!")
+
+        else:  #
+            st.error("something went wrong....")    #
 
 def login(box):
     with st.form('f1'):
@@ -68,7 +74,7 @@ def about(box):
     ''')
                 
 
-st.image('header.png')
+st.image('ppicjpg.jpg')
 
 st.title("welcome to career guidelines")
 
@@ -85,31 +91,34 @@ if b3:
 if email and len(email) > 10:
     login.text("You are logged in.")
 
-		
+if login or signup:
+    with st.form("add_form"):
+        name = st.text_input("Enter your Name:")
+        college = st.text_input("Enter your college name:")
+        edn = st.selectbox('Education Level:',['select one','12th','Graduate','Masters','Diploma'])
+        strm = st.selectbox("What is your Stream:",['select',"Science","Commerce","Arts"])
+        submit_btn = st.form_submit_button("submit form")
+
+
+    
+    
+if len(name)>1 and strm =='Science' and (edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):        
+    category = st.selectbox('select',('select','PCM','PCB'))
+    if strm=='Science' and category=='PCM':
+        functions.PCM()
+    elif strm=='Science' and category=='PCB':
+        functions.PCB()
+    else:
+        st.info("please select a right option")
+elif len(name)>1 and strm=='Commerce' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
+    functions.commerce()
+
+elif len(name)>1 and strm =='Arts' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
+    functions.Arts()
+else:
+    st.error("form incomplete")
+
 
 if email and len(email)>10:
     with st.expander("Starting Form",True):
-        with st.form("add_form"):
-            name = st.text_input("Enter your Name:")
-            edn = st.selectbox('Education Level:',['select one','12th','Graduate','Masters','Diploma'])
-            strm = st.selectbox("What is your Stream:",['select',"Science","Commerce","Arts"])
-            submit_btn = st.form_submit_button("submit form")
-    
-    
-    if len(name)>1 and strm =='Science' and (edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):        
-        category = st.selectbox('select',('select','PCM','PCB'))
-        if strm=='Science' and category=='PCM':
-            functions.PCM()
-        elif strm=='Science' and category=='PCB':
-            functions.PCB()
-        else:
-            st.info("please select a right option")
-    elif len(name)>1 and strm=='Commerce' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
-        functions.commerce()
-
-    elif len(name)>1 and strm =='Arts' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
-        functions.Arts()
-    else:
-        st.error("form incomplete")
-
-
+        pass
