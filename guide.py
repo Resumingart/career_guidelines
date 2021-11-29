@@ -9,7 +9,7 @@ import hashlib
 import pickle
 import os
 import re
-from streamlit_autorefresh import st_autorefresh
+# from streamlit_autorefresh import st_autorefresh
 
 # global 
 

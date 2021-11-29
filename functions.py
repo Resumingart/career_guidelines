@@ -178,8 +178,10 @@ def commerce():
         st.info(" please select the job field")
 
 def Arts():
-    job_options=['Designer','Filmaker','Journalist','Photographer','Philosophy','Criminology','Fine Arts']
+    job_options=['select','Designer','Filmaker','Journalist','Photographer','Philosophy','Criminology','Fine Arts']
     job_fields =st.selectbox("select a field",job_options)
+    if job_fields == job_options[0]:
+        pass
     if job_fields == job_options[1]:
         st.markdown('Go Through the link-https://www.themuse.com/advice/how-to-become-a-designer-at-any-stage-of-your-career')
     elif job_fields == job_options[2]:
