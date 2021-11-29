@@ -131,6 +131,13 @@ def career_form():
         submit_btn = st.form_submit_button("submit form")
     if submit_btn and len(name)>1 and strm =='Science' and (edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):        
         category = st.selectbox('select',('select','PCM','PCB'))
+        if strm=='Science' and category=='PCM':
+            functions.PCM()
+        elif strm=='Science' and category=='PCB':
+            functions.PCB()
+            
+        else:
+            pass
         db = open_db()
         career= Career(name=name,college=college,education_lvl=edn,stream=strm,email=settings['email'],career=category)
         db.add(career)
@@ -144,14 +151,9 @@ def career_form():
         }
         store_setting(settings)
         msg.success("data submitted successfully")
-        if strm=='Science' and category=='PCM':
-            functions.PCM()
+        
             
-        elif strm=='Science' and category=='PCB':
-            functions.PCB()
             
-        else:
-            st.info("please select a right option")
     elif len(name)>1 and strm=='Commerce' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
             functions.commerce()
 
