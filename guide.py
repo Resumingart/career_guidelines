@@ -95,7 +95,7 @@ def login(box):
             hashed_pswd = make_hashes(passwd)
             result = db.query(Login).filter(Login.email == user).filter(Login.password==passwd)
             print(result.count())
-            if result:
+            if result.count()==1:
                 settings['login_status']= True
                 settings['page']=3
                 settings['email']=result[0].email
@@ -118,8 +118,8 @@ def about(box):
 def career_form():
     career = settings['career']
     if career:
-        nm = career.name
-        clg = career.college
+        nm = career.get('name','')
+        clg = career.get('college','')
     else:
         nm = ''
         clg = ''
@@ -129,7 +129,6 @@ def career_form():
         edn = st.selectbox('Education Level:',['select one','12th','Graduate','Masters','Diploma'])
         strm = st.selectbox("What is your Stream:",['select',"Science","Commerce","Arts"])
         submit_btn = st.form_submit_button("submit form")
-
     if submit_btn and len(name)>1 and strm =='Science' and (edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):        
         category = st.selectbox('select',('select','PCM','PCB'))
         db = open_db()
