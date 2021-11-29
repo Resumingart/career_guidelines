@@ -13,7 +13,7 @@ class Career(Base):
     college = Column(String)
     education_lvl = Column(String)
     stream = Column(String)
-    email = Column(String,unique=True)
+    email = Column(String)
     career = Column(String)
 
 class Login(Base):

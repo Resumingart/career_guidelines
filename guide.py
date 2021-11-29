@@ -76,6 +76,7 @@ def signup(box):
                     msg.success("Account created successfully")
                     return True
                 except Exception as e:
+                    print(e)
                     msg.error("Could not create account")
             else:#
                 msg.error("password isn't matching !")#
@@ -88,7 +89,7 @@ def login(box):
     with st.form('f1'):
         user = st.text_input('Email here')
         passwd = st.text_input('Password here',type='password')
-        btn = st.form_submit_button("submit")
+        btn = st.form_submit_button("login")
         if btn:
             db = open_db()
             hashed_pswd = make_hashes(passwd)
@@ -115,19 +116,41 @@ def about(box):
     ''')
 
 def career_form():
+    career = settings['career']
+    if career:
+        nm = career.name
+        clg = career.college
+    else:
+        nm = ''
+        clg = ''
     with st.form("f3"):
-        name = st.text_input("Enter your Name:")
-        college = st.text_input("Enter your college name:")
+        name = st.text_input("Enter your Name:",value=nm)
+        college = st.text_input("Enter your college name:",value=clg)
         edn = st.selectbox('Education Level:',['select one','12th','Graduate','Masters','Diploma'])
         strm = st.selectbox("What is your Stream:",['select',"Science","Commerce","Arts"])
         submit_btn = st.form_submit_button("submit form")
 
     if submit_btn and len(name)>1 and strm =='Science' and (edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):        
         category = st.selectbox('select',('select','PCM','PCB'))
+        db = open_db()
+        career= Career(name=name,college=college,education_lvl=edn,stream=strm,email=settings['email'],career=category)
+        db.add(career)
+        db.commit()
+        db.close()
+        settings['career']= {
+            'name':name,
+            'college':college,
+            'education_lvl':edn,
+            'stream':strm,
+        }
+        store_setting(settings)
+        msg.success("data submitted successfully")
         if strm=='Science' and category=='PCM':
             functions.PCM()
+            
         elif strm=='Science' and category=='PCB':
             functions.PCB()
+            
         else:
             st.info("please select a right option")
     elif len(name)>1 and strm=='Commerce' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
