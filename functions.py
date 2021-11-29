@@ -116,7 +116,7 @@ def PCM():
         st.markdown('Go through the link-https://www.mindler.com/blog/pharmacy-career-india-guide/')
 
     else:
-        st.info(" please select the job field")
+        pass
 
 
 def PCB():
@@ -147,7 +147,7 @@ def PCB():
     elif job_fields == job_options[10]:
         st.markdown('Go Through the link-https://www.indeed.com/career-advice/career-development/how-to-be-hydrologist')
     else:
-        st.info(" please select the job field")
+        pass
 
 def commerce():
     job_options =['select','Research Analyst','Sales Manager','Budget Analyst','Auditor','Chief Financial Officer','Business Consultant','Stock Broker','Investment Banker','Taxation','Company secretary','Finance Advisor']
@@ -175,13 +175,11 @@ def commerce():
     elif job_fields == job_options[11]:
         st.markdown('Go Through the link-https://www.careerindia.com/features/how-to-become-a-financial-advisor-in-india-023404.html')
     else:
-        st.info(" please select the job field")
+        pass
 
 def Arts():
     job_options=['select','Designer','Filmaker','Journalist','Photographer','Philosophy','Criminology','Fine Arts']
     job_fields =st.selectbox("select a field",job_options)
-    if job_fields == job_options[0]:
-        pass
     if job_fields == job_options[1]:
         st.markdown('Go Through the link-https://www.themuse.com/advice/how-to-become-a-designer-at-any-stage-of-your-career')
     elif job_fields == job_options[2]:
@@ -197,4 +195,4 @@ def Arts():
     elif job_fields == job_options[7]:
         st.markdown('Go Through the link-https://www.sarvgyan.com/courses/arts/fine-arts')
     else:
-        st.info(" please select the job field")
+        pass
