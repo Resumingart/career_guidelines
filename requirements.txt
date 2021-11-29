@@ -1,1 +1,1 @@
-hydralit_components
+streamlit-autorefresh

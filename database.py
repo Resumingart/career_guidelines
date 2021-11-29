@@ -13,13 +13,13 @@ class Career(Base):
     college = Column(String)
     education_lvl = Column(String)
     stream = Column(String)
-    email = Column(String)
+    email = Column(String,unique=True)
     career = Column(String)
 
 class Login(Base):
     __tablename__ = "logins"
     id = Column(Integer,primary_key=True)
-    email = Column(String)
+    email = Column(String,unique=True)
     password = Column(String)
     
 
