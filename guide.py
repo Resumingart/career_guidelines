@@ -8,12 +8,6 @@ import pandas as pd
 import hashlib
 import pickle
 import os
-import re
-from streamlit_autorefresh import st_autorefresh
-
-# global 
-
-
 
 # file to store setting
 st.sidebar.image('path.jpg',use_column_width=True)
@@ -128,9 +122,9 @@ def career_form():
         college = st.text_input("Enter your college name:",value=clg)
         edn = st.selectbox('Education Level:',['select one','12th','Graduate','Masters','Diploma'])
         strm = st.selectbox("What is your Stream:",['select',"Science","Commerce","Arts"])
+        category = st.selectbox('select',('select','PCM','PCB','No Category'))
         submit_btn = st.form_submit_button("submit form")
     if submit_btn and len(name)>1 and strm =='Science' and (edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):        
-        category = st.selectbox('select',('select','PCM','PCB'))
         db = open_db()
         career= Career(name=name,college=college,education_lvl=edn,stream=strm,email=settings['email'],career=category)
         db.add(career)
@@ -141,24 +135,22 @@ def career_form():
             'college':college,
             'education_lvl':edn,
             'stream':strm,
+            'category':category,
         }
         store_setting(settings)
         msg.success("data submitted successfully")
-        if strm=='Science' and category=='PCM':
+    if 'stream' in settings.get('career'):
+        car = settings['career']
+        if car['stream'] == 'Science' and car['category']=='PCM':
             functions.PCM()
-            
-        elif strm=='Science' and category=='PCB':
+        if car['stream'] == 'Science' and car['category']=='PCB':
             functions.PCB()
-            
-        else:
-            st.info("please select a right option")
-    elif len(name)>1 and strm=='Commerce' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
+        elif car['stream']=='Commerce' and ( car['edn']=='12th' or car['edn']=='Graduate' or car['edn']=='Masters' or car['edn']=='Diploma'):
             functions.commerce()
-
-    elif len(name)>1 and strm =='Arts' and ( edn=='12th' or edn=='Graduate' or edn=='Masters' or edn=='Diploma'):
-        functions.Arts()
-    else:
-        st.error("form incomplete")
+        elif car['stream'] =='Arts' and ( car['edn']=='12th' or car['edn']=='Graduate' or car['edn']=='Masters' or car['edn']=='Diploma'):
+            functions.Arts()
+        else:
+            st.error("Please fill the form to get some guidance")
 
 settings = load_setting()
 c = st.columns(8)
@@ -183,10 +175,8 @@ elif settings['page']==2:
         msg.info(f"you are logged in as {settings['email']}")
     else:
         msg.error("please login to continue")
-        
 elif settings['page']==3 and settings['login_status']:
     career_form()
-
 if b1 :
     about(box)
 
@@ -201,5 +191,5 @@ try:
         settings['email'] = None
         settings['login_status']=False
         store_setting(settings)
-except:
+except Exception as e:
     pass
