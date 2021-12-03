@@ -82,7 +82,7 @@ def signup(box):
                 msg.error("password isn't matching !")#
             db.close()
         else:  #
-            msg.error("signup to continue")    #
+            msg.error("signup to continue")    
         return False
 
 def login(box):
