@@ -57,9 +57,9 @@ def signup(box):
         new_passwd2 = st.text_input('New Password again', type='password')
         btn = st.form_submit_button("Sign Up") 
         print("here")  
-        if btn  and len(new_user)>0: #
+        if btn  and len(new_user)>0: 
             db = open_db()
-            if new_passwd == new_passwd2:#
+            if new_passwd == new_passwd2:
                 try:
                     l = Login(email = new_user, password = new_passwd)
                     db.add(l)
@@ -72,10 +72,10 @@ def signup(box):
                 except Exception as e:
                     print(e)
                     msg.error("Could not create account")
-            else:#
-                msg.error("password isn't matching !")#
+            else:
+                msg.error("password isn't matching !")
             db.close()
-        else:  #
+        else:  
             msg.error("signup to continue")    
         return False
 
