@@ -127,7 +127,7 @@ def PCB():
         st.markdown('Go Through the link-https://bestaccreditedcolleges.org/articles/how-to-become-a-clinical-research-scientist-career-roadmap.html')
 
     elif job_fields == job_options[2]:
-        st.markdown('Go Through the link-Genetics')
+        st.markdown('Go Through the link-TBA')
 
     elif job_fields == job_options[3]:
         st.markdown('Go Through the link-https://collegedunia.com/courses/bachelor-of-engineering-be-biotechnology')
