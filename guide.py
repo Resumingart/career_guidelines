@@ -25,16 +25,16 @@ def script_runner(code):
 def store_setting(dict):
     pickle.dump(dict, open("setting.pkl", "wb"))
 
-def load_setting():
-    try:
-        return pickle.load(open("setting.pkl", "rb"))
-    except Exception as e:
-        return {
-            "login_status": False,
-            "career": None,
-            "email":None,
-            'page':1,
-        }
+# def load_setting():
+#     try:
+#         return pickle.load(open("setting.pkl", "rb"))
+#     except Exception as e:
+#         return {
+#             "login_status": False,
+#             "career": None,
+#             "email":None,
+#             'page':1,
+#         }
 
 def make_hashes(password):
     return hashlib.sha256(str.encode(password)).hexdigest()
